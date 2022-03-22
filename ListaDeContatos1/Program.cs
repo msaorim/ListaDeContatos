@@ -1,4 +1,14 @@
+using ListaDeContatos1.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+// Configuracao de conexao com MySql
+var connectionString = "server=localhost; user=root; password=root; database=DB_TreinoAsp";
+var serverVersion = ServerVersion.AutoDetect(connectionString);
+
+builder.Services.AddDbContext<AppDbContext>(dbContextOptions =>
+    dbContextOptions.UseMySql(connectionString, serverVersion));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
