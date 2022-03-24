@@ -31,3 +31,13 @@ body {
     background-color: #6bb17c;
     color: white;
 }
+
+#tabela {
+    width: 80%;
+}
+
+#formulario {
+    width: 80%;
+    border: solid 2px green;
+    padding: 30px;
+}

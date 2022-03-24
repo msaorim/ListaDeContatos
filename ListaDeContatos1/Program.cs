@@ -1,4 +1,5 @@
 using ListaDeContatos1.Data;
+using ListaDeContatos1.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +10,9 @@ var serverVersion = ServerVersion.AutoDetect(connectionString);
 
 builder.Services.AddDbContext<AppDbContext>(dbContextOptions =>
     dbContextOptions.UseMySql(connectionString, serverVersion));
+
+//injeção de dependencia
+builder.Services.AddScoped<IContatoRepository, ContatoRepository>(); 
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
